@@ -1,0 +1,36 @@
+{
+  "name": "string",
+  "email": "string",
+  "skills": [
+    "string"
+  ],
+  "education": [
+    {
+      "degree": "string",
+      "institution": "string",
+      "finished": true,
+      "duration": {
+        "start": "2026-03-13",
+        "end": "2026-03-13"
+      }
+    }
+  ],
+  "experience": [
+    {
+      "role": "string",
+      "company": "string",
+      "description": "string",
+      "duration": {
+        "start": "2026-03-13",
+        "end": "2026-03-13"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "name": "string",
+      "description": "string",
+      "link": "string"
+    }
+  ]
+}
