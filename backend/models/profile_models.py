@@ -38,3 +38,11 @@ class Profile(BaseModel):
     education: List[Education]
     experience: List[Experience]
     projects: List[Project]
+
+class ProfileUpdate(BaseModel):
+    name: Optional[str] = None
+    email: Optional[str] = None
+    skills: Optional[List[str]] = None
+    education: Optional[List[Education]] = None
+    experience: Optional[List[Experience]] = None
+    projects: Optional[List[Project]] = None
