@@ -1,7 +1,8 @@
 from pydantic import BaseModel
 from typing import List
+from models.profile_models import Profile
 
 class Resume(BaseModel):
     summary: str
-    experience: List[str]
-    skills: List[str]
+    profile: Profile
+    
