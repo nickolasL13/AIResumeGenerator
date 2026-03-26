@@ -80,7 +80,7 @@ def generate_resume_service(profile: Profile, job_description: JobDescription):
         Não use JSON. Apenas texto formatado no formato markdown.
         """
     
-    API_URL = "https://router.huggingface.co/v1/chat/completions"
+    API_URL = os.environ["API_URL"]
     headers = {
         "Authorization": f"Bearer {os.environ['HF_TOKEN']}",
     }
