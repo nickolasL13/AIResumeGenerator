@@ -1,0 +1,59 @@
+# V1 of resume writing pipeline
+
+job_task:
+  description: >
+    Conduct a complete analysis of the given job description and extract the required skills,
+    expected experience level, and relevant keywords for the role.
+
+    {job description}
+  expected_output: >
+    A structured list containing:
+    - Required skills
+    - Expected experience level
+    - Relevant keywords
+    
+    Also include a short text (maximum 50 words) describing what makes a candidate a strong fit for this role.
+  agent: job
+
+profile_task:
+  description: >
+     Analyze the candidate profile and extract relevant skills and experiences based on the job description analysis.
+
+     {profile}
+  expected_output: >
+    A structured list of:
+    - Relevant skills
+    - Relevant experiences
+    
+    Focus only on what aligns with the job requirements.
+  agent: profile
+  context: [job_task]
+
+resume_task:
+  description: >
+    Write an ATS-friendly resume tailored to the job described in the context.
+      
+    Use the candidate profile information and emphasize the most relevant skills and experiences.
+    Incorporate the keywords extracted from the job description naturally.
+
+    Do NOT create or invent any new experiences. Only rephrase and optimize existing information.
+
+    The candidate profile below is just for general information, for more tailored information for the
+    job role use the information contained in the context.
+    
+    {profile}
+    
+    Ensure the resume is:
+    - Well-structured
+    - Keyword-optimized
+    - Professional and concise
+  expected_output: >
+    A complete ATS-friendly resume in markdown format, including:
+    - Summary
+    - Skills
+    - Experience
+    - Education
+    - Projects (if applicable)
+  agent: resume
+  context: [job_task, profile_task]
+  output_file: resume.md
